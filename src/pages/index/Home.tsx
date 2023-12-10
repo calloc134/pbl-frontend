@@ -5,18 +5,21 @@ import { css } from "../../lib/styled-system/css";
 const Home = () => {
   return (
     <div
-      style={{
+      className={css({
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
-      }}
+      })}
     >
       <div
         className={css({
-          width: "100%", // BEGIN: Set width to 100%
-          maxWidth: 400, // Set maximum width to 400
-          padding: 16,
+          width: "100%",
+          maxWidth: 400,
+          padding: 4,
+          lg: {
+            padding: 8, // Add left and right padding on medium screens and above
+          },
           backgroundColor: "#f0f0f0",
           borderRadius: 8,
           border: "2px solid",
@@ -24,30 +27,41 @@ const Home = () => {
       >
         <h1
           className={css({
-            fontSize: 24,
+            fontSize: 20,
             fontWeight: "bold",
             marginBottom: 16,
-            textAlign: "center", // BEGIN: Set text alignment to center
+            textAlign: "center",
           })}
         >
           出席管理システム
         </h1>
         <p
           className={css({
-            fontSize: 16,
+            fontSize: 14,
             marginBottom: 16,
-            textAlign: "center", // Set text alignment to center
+            textAlign: "center",
           })}
         >
           出席管理システムへようこそ。
         </p>
         <div
-          className={css({ display: "flex", justifyContent: "space-between" })}
+          className={css({
+            display: "flex",
+            justifyContent: "center", // Add this line to center the buttons horizontally
+            flexDirection: "column",
+            md: {
+              flexDirection: "row", // Set flex direction to row on medium screens and above
+            },
+          })}
         >
           <Button
             className={css({
               padding: "8px 16px",
               borderRadius: 4,
+              marginBottom: 8,
+              md: {
+                marginRight: 8, // Add right margin on medium screens and above
+              },
             })}
           >
             <Link to="/student/login">生徒用ログイン</Link>
