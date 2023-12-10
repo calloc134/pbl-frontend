@@ -90,7 +90,7 @@ const StudentLogin = () => {
     }
 
     // ユーザ登録に成功した場合
-    toast.success("ログインしました。", {
+    toast.success(`${payload.name}としてログインしました。`, {
       icon: "👨‍🏫",
     });
 

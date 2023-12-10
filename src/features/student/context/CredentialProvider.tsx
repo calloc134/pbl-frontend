@@ -1,7 +1,7 @@
 import { FC, ReactNode, useCallback } from "react";
 import { JwtContext } from "./CredentialContext";
 import { JwtPayloadType, IJwtContext } from "../types/jwtType";
-import { decode } from "ab64";
+import { decode } from "js-base64";
 import { useSessionStorage } from "./useSessionStorage";
 
 // プロバイダコンポーネント
