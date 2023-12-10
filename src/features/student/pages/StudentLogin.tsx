@@ -30,7 +30,7 @@ const StudentLogin = () => {
 
       setTimeout(() => {
         navigate({
-          to: "/student",
+          to: "/student/auth/",
         });
       }, 1500);
     }
