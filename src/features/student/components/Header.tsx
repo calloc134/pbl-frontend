@@ -15,7 +15,7 @@ const Header = () => {
   return (
     <div
       className={css({
-        backgroundColor: "gray.2",
+        backgroundColor: "gray.3",
         borderBottom: "2px solid",
         borderColor: "gray.2",
         display: "flex",
@@ -24,16 +24,13 @@ const Header = () => {
         padding: 2,
         fontSize: "small", // Add this line to set the font size to small
         flexWrap: "wrap", // Add this line to wrap the content
-        md: {
-          fontSize: "medium", // Increase font size for larger screens
-        },
       })}
     >
       <Drawer.Trigger asChild>
         <Button variant="ghost" rounded="full">
           <div className={css({ display: "flex", alignItems: "center" })}>
             <School
-              size={32}
+              size={48}
               strokeWidth={2}
               className={css({ marginRight: 8 })}
             />
@@ -44,10 +41,16 @@ const Header = () => {
                 alignItems: "start",
               })}
             >
-              <span className={css({ fontWeight: "bold", fontSize: 16 })}>
+              <span
+                className={css({
+                  fontWeight: "bold",
+                  fontSize: 16,
+                  md: { fontSize: 20 },
+                })}
+              >
                 学生用画面
               </span>
-              <span className={css({ fontSize: 12 })}>
+              <span className={css({ fontSize: 12, md: { fontSize: 14 } })}>
                 ここを押してサイドバーを開きます...
               </span>
             </div>

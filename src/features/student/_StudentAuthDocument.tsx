@@ -37,9 +37,9 @@ const StudentAuthDocument = () => {
           <Header />
           <div
             className={css({
-              padding: 4,
+              padding: 2,
               md: {
-                padding: 8, // Add left and right padding on medium screens and above
+                padding: 4, // Add left and right padding on medium screens and above
               },
             })}
           >

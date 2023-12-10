@@ -9,18 +9,23 @@ const MyStudentDetails: React.FC = () => {
   return (
     <div
       className={css({
-        padding: 8,
-        width: "60%", // Set the width to 60% of the screen size
+        padding: 4, // Decrease the padding to 4
+        width: "100%", // Set the width to 100% of the screen size
+        maxWidth: 600, // Limit the width to 400px
         margin: "0 auto", // Center align the card
         border: "1px solid black", // Add a black border to the card
         borderRadius: 8, // Add rounded corners to the card
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        md: {
+          padding: 8, // Increase the padding to 8 on medium screens and above
+          fontSize: 16, // Increase the font size to 16 on medium screens and above
+        },
       })}
     >
-      <h2 className={css({ marginBottom: 16 })}>
-        <span className={css({ fontWeight: "bold", fontSize: 32 })}>
+      <h2 className={css({ marginBottom: 8 })}>
+        <span className={css({ fontWeight: "bold", fontSize: 24 })}>
           生徒アカウントの詳細
         </span>
       </h2>
@@ -35,20 +40,52 @@ const MyStudentDetails: React.FC = () => {
         <Table.Root>
           <Table.Body>
             <Table.Row>
-              <Table.Cell>ID</Table.Cell>
-              <Table.Cell>{student_id}</Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                学籍番号
+              </Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                {student_id}
+              </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>名前</Table.Cell>
-              <Table.Cell>{name}</Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                名前
+              </Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                {name}
+              </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>メールアドレス</Table.Cell>
-              <Table.Cell>{email}</Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                メールアドレス
+              </Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                {email}
+              </Table.Cell>
             </Table.Row>
             <Table.Row>
-              <Table.Cell>デバイスID</Table.Cell>
-              <Table.Cell>{device_id}</Table.Cell>
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                デバイスID
+              </Table.Cell>{" "}
+              <Table.Cell
+                className={css({ fontSize: 12, md: { fontSize: 16 } })}
+              >
+                {device_id}
+              </Table.Cell>{" "}
             </Table.Row>
           </Table.Body>
         </Table.Root>
