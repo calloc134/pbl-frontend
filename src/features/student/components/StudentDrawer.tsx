@@ -32,13 +32,19 @@ const StudentDrawer: React.FC = () => {
             </Drawer.Header>
             <Drawer.Body>
               <div className={css({ marginBottom: 4 })}>
-                <Link to="/student/auth/">生徒用画面のトップ</Link>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/student/auth/">生徒用画面のトップ</Link>
+                </Drawer.CloseTrigger>
               </div>
               <div className={css({ marginBottom: 4 })}>
-                <Link to="/student/auth/attendance">出席状況</Link>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/student/auth/attendance">出席状況</Link>
+                </Drawer.CloseTrigger>
               </div>
               <div className={css({ marginBottom: 4 })}>
-                <Link to="/student/auth/join-lesson">履修している授業</Link>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/student/auth/join-lesson">履修している授業</Link>
+                </Drawer.CloseTrigger>
               </div>
             </Drawer.Body>
           </Drawer.Content>
