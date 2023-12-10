@@ -11,6 +11,9 @@ dependencies:
   '@park-ui/panda-preset':
     specifier: ^0.22.0
     version: 0.22.0(@internationalized/date@3.5.0)(@types/react-dom@18.2.15)(@types/react@18.2.37)(typescript@5.2.2)
+  '@tanstack/react-query':
+    specifier: ^5.13.4
+    version: 5.13.4(react@18.2.0)
   '@tanstack/react-router':
     specifier: 0.0.1-beta.212
     version: 0.0.1-beta.212(react-dom@18.2.0)(react@18.2.0)
@@ -2545,6 +2548,19 @@ packages:
   /@tanstack/history@0.0.1-beta.212:
     resolution: {integrity: sha512-GYwBl77M5LdxG9fFAQe6ie469vw+CFEdwJy+LeTLMlbpYBl2dM5ln/pJkqh2HWE07YkBS7UmFlxNgNX5BtyuLA==}
     engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/query-core@5.13.4:
+    resolution: {integrity: sha512-8+rJucXvC/xlr4OrxHhEIob/cTlbT4fgmz1VsvB0D12FRStKaXeLORNGcOhSAynRd2NL74SV/Qq0IIb4DedLcA==}
+    dev: false
+
+  /@tanstack/react-query@5.13.4(react@18.2.0):
+    resolution: {integrity: sha512-3HjvkFFriEQwffUXtKHPiwkfFXUGbs46YATTzzyK1+Pw6Ekd3kwzS50e45qdamWuEXmXxyo5S1zp534LdFG0Rw==}
+    peerDependencies:
+      react: ^18.0.0
+    dependencies:
+      '@tanstack/query-core': 5.13.4
+      react: 18.2.0
     dev: false
 
   /@tanstack/react-router@0.0.1-beta.212(react-dom@18.2.0)(react@18.2.0):
