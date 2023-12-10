@@ -33,7 +33,7 @@ const StudentDrawer: React.FC = () => {
             <Drawer.Body>
               <div className={css({ marginBottom: 4 })}>
                 <Drawer.CloseTrigger asChild>
-                  <Link to="/student/auth/">教師用画面のトップ</Link>
+                  <Link to="/teacher/auth/">教師用画面のトップ</Link>
                 </Drawer.CloseTrigger>
               </div>
             </Drawer.Body>
