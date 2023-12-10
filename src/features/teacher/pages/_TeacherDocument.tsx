@@ -1,8 +1,8 @@
 import { Outlet } from "@tanstack/react-router";
-import { JwtProvider } from "./context/CredentialProvider";
+import { JwtProvider } from "../context/CredentialProvider";
 import { Toaster } from "react-hot-toast";
 
-const StudentDocument = () => (
+const TeacherDocument = () => (
   <>
     <JwtProvider>
       <Outlet />
@@ -11,4 +11,4 @@ const StudentDocument = () => (
   </>
 );
 
-export { StudentDocument };
+export { TeacherDocument };

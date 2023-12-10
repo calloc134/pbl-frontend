@@ -1,6 +1,6 @@
 import { FC, ReactNode, useCallback } from "react";
 import { JwtContext } from "./CredentialContext";
-import { JwtStudentPayloadType, IJwtStudentContext } from "../types/jwtType";
+import { JwtTeacherPayloadType, IJwtTeacherContext } from "../types/jwtType";
 import { decode } from "js-base64";
 import { useSessionStorage } from "./useSessionStorage";
 
@@ -8,11 +8,11 @@ import { useSessionStorage } from "./useSessionStorage";
 
 const JwtProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [jwtToken, setJwtToken] = useSessionStorage<string | null>(
-    "StudentJwtToken",
+    "TeacherJwtToken",
     null
   );
 
-  const getJwtPayload = useCallback((): JwtStudentPayloadType | null => {
+  const getJwtPayload = useCallback((): JwtTeacherPayloadType | null => {
     if (!jwtToken) {
       console.debug("jwtToken is null");
       return null;
@@ -26,7 +26,7 @@ const JwtProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [jwtToken]);
 
   // コンテキストプロバイダの値
-  const contextValue: IJwtStudentContext = {
+  const contextValue: IJwtTeacherContext = {
     jwtToken,
     setJwtToken,
     getJwtPayload,

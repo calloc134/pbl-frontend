@@ -1,13 +1,13 @@
 // JWTのペイロードを持つ型定義
-export type JwtStudentPayloadType = {
+export type JwtTeacherPayloadType = {
   type: string;
-  student_uuid: string;
+  teacher_uuid: string;
   name: string;
 };
 
 // コンテキストの値の型定義
-export interface IJwtStudentContext {
+export interface IJwtTeacherContext {
   jwtToken: string | null;
   setJwtToken: (token: string | null) => void;
-  getJwtPayload: () => JwtStudentPayloadType | null;
+  getJwtPayload: () => JwtTeacherPayloadType | null;
 }

@@ -1,8 +1,8 @@
 // JwtContext.js
 import { createContext } from "react";
-import { IJwtContext } from "../types/jwtType";
+import { IJwtStudentContext } from "../types/jwtType";
 
 // コンテキストの作成
-const JwtContext = createContext<IJwtContext | undefined>(undefined);
+const JwtContext = createContext<IJwtStudentContext | undefined>(undefined);
 
 export { JwtContext };

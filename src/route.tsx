@@ -4,11 +4,16 @@ import { NotFound } from "./pages/index/NotFound";
 import { Home } from "src/pages/index/Home";
 import { StudentRegister } from "./features/student/pages/StudentRegister";
 import { StudentLogin } from "./features/student/pages/StudentLogin";
-import { StudentDocument } from "./features/student/_StudentDocument";
-import { StudentAuthDocument } from "./features/student/_StudentAuthDocument";
+import { StudentDocument } from "./features/student/pages/_StudentDocument";
+import { StudentAuthDocument } from "./features/student/pages/_StudentAuthDocument";
 import { MyStudentDetails } from "./features/student/pages/MyStudentDetails";
 import { MyAttendance } from "./features/student/pages/MyAttendance";
 import { MyJoinLesson } from "./features/student/pages/MyJoinLesson";
+import { TeacherDocument } from "./features/teacher/pages/_TeacherDocument";
+import { TeacherRegister } from "./features/teacher/pages/TeacherRegister";
+import { TeacherLogin } from "./features/teacher/pages/TeacherLogin";
+import { TeacherAuthDocument } from "./features/teacher/pages/_StudentAuthDocument";
+import { MyTeacherDetails } from "./features/teacher/pages/MyTeacherDetails";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -77,11 +82,39 @@ const student_attendance_route = new Route({
 });
 
 // 教師用のルート
-// const teacher_route = new Route({
-//   getParentRoute: () => root_route,
-//   path: "/teacher",
-//   component: () => <Document />,
-// });
+const teacher_route = new Route({
+  getParentRoute: () => root_route,
+  path: "/teacher",
+  component: () => <TeacherDocument />,
+});
+
+// 教師が登録する用のルート
+const teacher_register_route = new Route({
+  getParentRoute: () => teacher_route,
+  path: "/register",
+  component: () => <TeacherRegister />,
+});
+
+// 教師がログインする用のルート
+const teacher_login_route = new Route({
+  getParentRoute: () => teacher_route,
+  path: "/login",
+  component: () => <TeacherLogin />,
+});
+
+// 教師がログインした後のルート
+const teacher_auth_route = new Route({
+  getParentRoute: () => teacher_route,
+  path: "/auth",
+  component: () => <TeacherAuthDocument />,
+});
+
+// 教師が自分の情報を確認する用のルート
+const teacher_info_route = new Route({
+  getParentRoute: () => teacher_auth_route,
+  path: "/",
+  component: () => <MyTeacherDetails />,
+});
 
 const router = new Router({
   routeTree: root_route.addChildren([
@@ -93,6 +126,11 @@ const router = new Router({
           student_info_route,
           student_attendance_route,
           student_course_route,
+        ]),
+        teacher_route.addChildren([
+          teacher_register_route,
+          teacher_login_route,
+          teacher_auth_route.addChildren([teacher_info_route]),
         ]),
       ]),
     ]),

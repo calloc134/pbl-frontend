@@ -3,16 +3,16 @@ import { Button } from "src/components/Button";
 import { Input } from "src/components/Input";
 import { css } from "src/lib/styled-system/css";
 import toast, { Toaster } from "react-hot-toast";
-import { useStudentLoginFetch } from "../hooks/useStudentLoginFetch";
+import { useLoginFetch } from "../hooks/useTeacherLoginFetch";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { useJwtToken } from "../context/useJWTToken";
 
-const StudentLogin = () => {
+const TeacherLogin = () => {
   const studentIdRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 
   // ログイン用のカスタムフック
-  const { loginFetch } = useStudentLoginFetch();
+  const { loginFetch } = useLoginFetch();
 
   // ログイン状態のカスタムフック
   const { jwtToken } = useJwtToken();
@@ -30,7 +30,7 @@ const StudentLogin = () => {
 
       setTimeout(() => {
         navigate({
-          to: "/student/auth/",
+          to: "/teacher/auth/",
         });
       }, 1500);
     }
@@ -38,28 +38,28 @@ const StudentLogin = () => {
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const studentId = studentIdRef.current?.value;
+    const teacherId = studentIdRef.current?.value;
     const password = passwordRef.current?.value;
 
-    if (!studentId || !password) {
+    if (!teacherId || !password) {
       // フォームの入力が不完全な場合
-      toast.error("学籍番号とパスワードを入力してください。", {
+      toast.error("教師IDとパスワードを入力してください。", {
         icon: "👨‍🏫",
       });
-      console.error("学籍番号とパスワードを入力してください");
+      console.error("教師IDとパスワードを入力してください");
       return;
     }
 
     // Add your validation logic here
-    const studentIdRegex = /^\d{9}$/;
+    const teacherIdRegex = /^\d{9}$/;
     const passwordRegex = /^.{4,}$/;
 
-    if (!studentIdRegex.test(studentId || "")) {
-      // 学籍番号のバリデーションに失敗
-      toast.error("学籍番号が正しくありません。", {
+    if (!teacherIdRegex.test(teacherId || "")) {
+      // 教師IDのバリデーションに失敗
+      toast.error("教師IDが正しくありません。", {
         icon: "👨‍🏫",
       });
-      console.error("学籍番号が正しくありません");
+      console.error("教師IDが正しくありません");
 
       return;
     }
@@ -75,12 +75,12 @@ const StudentLogin = () => {
     }
 
     // エンドポイントからログイン
-    const payload = await loginFetch(studentId, password);
+    const payload = await loginFetch(teacherId, password);
 
     if (!payload) {
       // ログインに失敗した場合
       toast.error(
-        "ログインに失敗しました。学籍番号とパスワードを確認してください。",
+        "ログインに失敗しました。教師IDとパスワードを確認してください。",
         {
           icon: "👨‍🏫",
         }
@@ -97,7 +97,7 @@ const StudentLogin = () => {
     // 1.5秒待機
     setTimeout(() => {
       navigate({
-        to: "/student/auth/",
+        to: "/teacher/auth/",
       });
     }, 1500);
   };
@@ -122,14 +122,14 @@ const StudentLogin = () => {
         })}
       >
         <h1 className={css({ fontSize: 20, marginBottom: 12 })}>
-          生徒アカウントとしてログイン
+          教師用アカウントとしてログイン
         </h1>
         <form
           onSubmit={handleSubmit}
           className={css({ display: "flex", flexDirection: "column" })}
         >
           <label className={css({ marginBottom: 8 })}>
-            学籍番号:
+            教師ID:
             <Input
               type="text"
               ref={studentIdRef}
@@ -166,7 +166,7 @@ const StudentLogin = () => {
             <a> アカウントをお持ちでない方はこちら</a>
           </span>
           <Button className={css({})}>
-            <Link to="/student/register">アカウント登録</Link>
+            <Link to="/teacher/register">アカウント登録</Link>
           </Button>
         </div>
       </div>
@@ -175,4 +175,4 @@ const StudentLogin = () => {
   );
 };
 
-export { StudentLogin };
+export { TeacherLogin };

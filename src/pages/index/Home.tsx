@@ -72,7 +72,7 @@ const Home = () => {
               borderRadius: 4,
             })}
           >
-            教師用ログイン
+            <Link to="/teacher/login">教師用ログイン</Link>
           </Button>
         </div>
       </div>

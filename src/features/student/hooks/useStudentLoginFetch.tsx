@@ -2,7 +2,7 @@ import { useJwtToken } from "../context/useJWTToken";
 import { decodePayload } from "../utils/decodePayload";
 
 // ログインを行うカスタムフック
-const useLoginFetch = () => {
+const useStudentLoginFetch = () => {
   // JWTをセットするフック
   const { setJwtToken } = useJwtToken();
 
@@ -60,4 +60,4 @@ const useLoginFetch = () => {
   return { loginFetch };
 };
 
-export { useLoginFetch };
+export { useStudentLoginFetch };

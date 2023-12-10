@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { Outlet, useNavigate } from "@tanstack/react-router";
-import { useJwtToken } from "./context/useJWTToken";
+import { useJwtToken } from "../context/useJWTToken";
 import { toast } from "react-hot-toast";
 import { css } from "src/lib/styled-system/css";
-import { Header } from "./components/Header";
+import { Header } from "../components/Header";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import * as Drawer from "src/components/Drawer";
 
-import { StudentDrawer } from "./components/StudentDrawer";
+import { StudentDrawer } from "../components/TeacherDrawer";
 
 // ログインが必要なページのラッパー
-const StudentAuthDocument = () => {
+const TeacherAuthDocument = () => {
   const { jwtToken } = useJwtToken();
 
   const queryClient = new QueryClient();
@@ -52,4 +52,4 @@ const StudentAuthDocument = () => {
   );
 };
 
-export { StudentAuthDocument };
+export { TeacherAuthDocument };
