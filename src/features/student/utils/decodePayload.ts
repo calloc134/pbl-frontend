@@ -1,12 +1,10 @@
 import { JwtPayloadType } from "../types/jwtType";
-import { Buffer } from "buffer";
+import { decode } from "ab64";
 
 // ペイロードをbase64デコードする関数
 const decodePayload = (token: string): JwtPayloadType => {
   const payload = token.split(".")[1];
-  return JSON.parse(
-    Buffer.from(payload, "base64").toString("utf8")
-  ) as JwtPayloadType;
+  return JSON.parse(decode(payload)) as JwtPayloadType;
 };
 
 export { decodePayload };

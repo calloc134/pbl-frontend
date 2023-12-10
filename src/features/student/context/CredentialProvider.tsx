@@ -1,6 +1,7 @@
 import { FC, ReactNode, useCallback } from "react";
 import { JwtContext } from "./CredentialContext";
 import { JwtPayloadType, IJwtContext } from "../types/jwtType";
+import { decode } from "ab64";
 import { useSessionStorage } from "./useSessionStorage";
 
 // プロバイダコンポーネント
@@ -20,7 +21,7 @@ const JwtProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     const payload = jwtToken.split(".")[1];
     // base64をデコード
-    const decodedPayload = Buffer.from(payload, "base64").toString("utf8");
+    const decodedPayload = decode(payload);
     return JSON.parse(decodedPayload);
   }, [jwtToken]);
 
