@@ -4,7 +4,7 @@ import { Input } from "src/components/Input";
 import { css } from "src/lib/styled-system/css";
 import toast, { Toaster } from "react-hot-toast";
 import { useLoginFetch } from "../hooks/useLoginFetch";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { useJwtToken } from "../context/useJWTToken";
 
 const StudentLogin = () => {
@@ -97,7 +97,7 @@ const StudentLogin = () => {
     // 1.5秒待機
     setTimeout(() => {
       navigate({
-        to: "/student",
+        to: "/student/auth/",
       });
     }, 1500);
   };
@@ -121,7 +121,7 @@ const StudentLogin = () => {
         })}
       >
         <h1 className={css({ fontSize: 24, marginBottom: 16 })}>
-          生徒アカウントの登録
+          生徒アカウントとしてログイン
         </h1>
         <form
           onSubmit={handleSubmit}
@@ -154,6 +154,20 @@ const StudentLogin = () => {
             ログイン
           </Button>
         </form>
+        <div
+          className={css({
+            marginTop: 8,
+            display: "flex",
+            flexDirection: "column",
+          })}
+        >
+          <span className={css({ marginTop: 8 })}>
+            <a> アカウントをお持ちでない方はこちら</a>
+          </span>
+          <Button className={css({})}>
+            <Link to="/student/register">アカウント登録</Link>
+          </Button>
+        </div>
       </div>
       <Toaster />
     </div>
