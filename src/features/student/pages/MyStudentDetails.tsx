@@ -1,5 +1,6 @@
 import { useMyStudentDetailsFetch } from "../hooks/useMyStudentDetailsFetch";
 import { css } from "src/lib/styled-system/css";
+import * as Table from "src/components/Table";
 
 const MyStudentDetails: React.FC = () => {
   const { data } = useMyStudentDetailsFetch();
@@ -31,34 +32,27 @@ const MyStudentDetails: React.FC = () => {
           justifyContent: "center",
         })}
       >
-        <div className={css({ marginBottom: 16 })}>
-          <span className={css({ fontWeight: "bold", fontSize: 32 })}>
-            学籍番号:
-          </span>
-          <span className={css({ marginLeft: 8, fontSize: 32 })}>
-            {student_id}
-          </span>
-        </div>
-        <div className={css({ marginBottom: 16 })}>
-          <span className={css({ fontWeight: "bold", fontSize: 32 })}>
-            名前:
-          </span>
-          <span className={css({ marginLeft: 8, fontSize: 32 })}>{name}</span>
-        </div>
-        <div className={css({ marginBottom: 16 })}>
-          <span className={css({ fontWeight: "bold", fontSize: 32 })}>
-            メールアドレス:
-          </span>
-          <span className={css({ marginLeft: 8, fontSize: 32 })}>{email}</span>
-        </div>
-        <div className={css({ marginBottom: 16 })}>
-          <span className={css({ fontWeight: "bold", fontSize: 32 })}>
-            デバイスID:
-          </span>
-          <span className={css({ marginLeft: 8, fontSize: 32 })}>
-            {device_id}
-          </span>
-        </div>
+        <Table.Root>
+          <Table.Caption>生徒アカウントの詳細</Table.Caption>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>ID</Table.Cell>
+              <Table.Cell>{student_id}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>名前</Table.Cell>
+              <Table.Cell>{name}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>メールアドレス</Table.Cell>
+              <Table.Cell>{email}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>デバイスID</Table.Cell>
+              <Table.Cell>{device_id}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table.Root>
       </div>
     </div>
   );

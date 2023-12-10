@@ -1,6 +1,8 @@
 import { css } from "src/lib/styled-system/css";
 import { useMyStudentDetailsFetch } from "../hooks/useMyStudentDetailsFetch";
 import { School } from "tabler-icons-react";
+import * as Drawer from "src/components/Drawer";
+import { Button } from "src/components/Button";
 
 // 画面全体のヘッダー部分を表示するコンポーネント
 const Header = () => {
@@ -21,12 +23,20 @@ const Header = () => {
         padding: 8,
       })}
     >
-      <div className={css({ display: "flex", alignItems: "center" })}>
-        <School size={32} strokeWidth={2} className={css({ marginRight: 8 })} />
-        <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-          学生用画面
-        </span>
-      </div>
+      <Drawer.Trigger asChild>
+        <Button variant="ghost" rounded="full">
+          <div className={css({ display: "flex", alignItems: "center" })}>
+            <School
+              size={32}
+              strokeWidth={2}
+              className={css({ marginRight: 8 })}
+            />
+            <span className={css({ fontWeight: "bold", fontSize: 16 })}>
+              学生用画面
+            </span>
+          </div>
+        </Button>
+      </Drawer.Trigger>
       <div className={css({ display: "flex", alignItems: "center" })}>
         <div className={css({ marginRight: 24 })}>
           <span className={css({ fontWeight: "bold" })}>固有ID:</span>

@@ -5,6 +5,9 @@ import { toast } from "react-hot-toast";
 import { css } from "src/lib/styled-system/css";
 import { Header } from "./components/Header";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+import * as Drawer from "src/components/Drawer";
+
+import { StudentDrawer } from "./components/StudentDrawer";
 
 // ログインが必要なページのラッパー
 const StudentAuthDocument = () => {
@@ -29,10 +32,13 @@ const StudentAuthDocument = () => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className={css({ backgroundColor: "gray.1" })}>
-        <Header />
-        <Outlet />
-      </div>
+      <Drawer.Root placement={"left"}>
+        <div className={css({ backgroundColor: "gray.1" })}>
+          <Header />
+          <Outlet />
+          <StudentDrawer />
+        </div>
+      </Drawer.Root>
     </QueryClientProvider>
   );
 };
