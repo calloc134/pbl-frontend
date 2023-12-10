@@ -16,3 +16,8 @@
   - tanstack/react-query
   - tanstack/react-router
   - js-base64
+
+## 今後の展望
+
+- バリデーションの修正やバックエンドとの共通化等
+  - 特にバックエンドにスキーマ定義や共通化の仕組みを導入したら行っていきたい
