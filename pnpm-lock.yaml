@@ -23,9 +23,6 @@ dependencies:
   '@tanstack/router-devtools':
     specifier: 0.0.1-beta.212
     version: 0.0.1-beta.212(react-dom@18.2.0)(react@18.2.0)
-  ab64:
-    specifier: ^0.1.1
-    version: 0.1.1
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -4520,13 +4517,6 @@ packages:
 
   /@zag-js/visually-hidden@0.29.0:
     resolution: {integrity: sha512-p2aov51kFaCmzQKXQVdwEJ4IsMavNjdfqU/td37y98miX79NGwmpmptSckdaA7rUh/Xnfcfivs2DMFoOr/JmYw==}
-    dev: false
-
-  /ab64@0.1.1:
-    resolution: {integrity: sha512-+TDVwnMbTMnU1tOQuR6ZB8GtXIesuK4yYahP+75hOX+hr68UDNTL1EAy2ubx+zg2zcvtPwUEJGjkqFOr1xftxA==}
-    engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
-    dependencies:
-      tslib: 2.6.2
     dev: false
 
   /abbrev@1.1.1:
