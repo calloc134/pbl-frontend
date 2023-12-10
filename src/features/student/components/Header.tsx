@@ -37,9 +37,20 @@ const Header = () => {
               strokeWidth={2}
               className={css({ marginRight: 8 })}
             />
-            <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-              学生用画面
-            </span>
+            <div
+              className={css({
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "start",
+              })}
+            >
+              <span className={css({ fontWeight: "bold", fontSize: 16 })}>
+                学生用画面
+              </span>
+              <span className={css({ fontSize: 12 })}>
+                ここを押してサイドバーを開きます...
+              </span>
+            </div>
           </div>
         </Button>
       </Drawer.Trigger>
