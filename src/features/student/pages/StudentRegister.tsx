@@ -127,52 +127,52 @@ const StudentRegister = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: 16,
+        padding: 8,
       })}
     >
       <div
         className={css({
-          padding: 8, // Increase padding for better spacing
+          padding: 4, // Increase padding for better spacing
           backgroundColor: "#f0f0f0",
           borderRadius: 8,
           textAlign: "center",
           border: "2px solid",
         })}
       >
-        <h1 className={css({ fontSize: 24, marginBottom: 16 })}>
+        <h1 className={css({ fontSize: 20, marginBottom: 8 })}>
           生徒アカウントの登録
         </h1>
         <form
           onSubmit={handleSubmit}
           className={css({ display: "flex", flexDirection: "column" })}
         >
-          <label className={css({ marginBottom: 16 })}>
+          <label className={css({ marginBottom: 8 })}>
             学籍番号:
             <Input
               type="text"
               ref={studentIdRef}
-              size="xl"
+              size="md"
               bgColor={"gray.1"}
             />
           </label>
-          <label className={css({ marginBottom: 16 })}>
+          <label className={css({ marginBottom: 8 })}>
             名前:
-            <Input type="text" ref={nameRef} size="xl" bgColor={"gray.1"} />
+            <Input type="text" ref={nameRef} size="md" bgColor={"gray.1"} />
           </label>
-          <label className={css({ marginBottom: 16 })}>
+          <label className={css({ marginBottom: 8 })}>
             メールアドレス:
-            <Input type="email" ref={emailRef} size="xl" bgColor={"gray.1"} />
+            <Input type="email" ref={emailRef} size="md" bgColor={"gray.1"} />
           </label>
           <label className={css({ marginBottom: 8 })}>
             デバイスID:
-            <Input type="text" ref={deviceIdRef} size="xl" bgColor={"gray.1"} />
+            <Input type="text" ref={deviceIdRef} size="md" bgColor={"gray.1"} />
           </label>
           <label className={css({ marginBottom: 8 })}>
             パスワード:
             <Input
               type="password"
               ref={passwordRef}
-              size="xl"
+              size="md"
               bgColor={"gray.1"}
             />
           </label>

@@ -108,31 +108,32 @@ const StudentLogin = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: 16,
+        padding: 8, // Decrease padding for smaller screens
+        height: "100vh",
       })}
     >
       <div
         className={css({
-          padding: 8, // Increase padding for better spacing
+          padding: 4, // Decrease padding for smaller screens
           backgroundColor: "#f0f0f0",
           borderRadius: 8,
           textAlign: "center",
           border: "2px solid",
         })}
       >
-        <h1 className={css({ fontSize: 24, marginBottom: 16 })}>
+        <h1 className={css({ fontSize: 20, marginBottom: 12 })}>
           生徒アカウントとしてログイン
         </h1>
         <form
           onSubmit={handleSubmit}
           className={css({ display: "flex", flexDirection: "column" })}
         >
-          <label className={css({ marginBottom: 16 })}>
+          <label className={css({ marginBottom: 8 })}>
             学籍番号:
             <Input
               type="text"
               ref={studentIdRef}
-              size="xl"
+              size="md" // Decrease input size for smaller screens
               bgColor={"gray.1"}
             />
           </label>
@@ -141,14 +142,14 @@ const StudentLogin = () => {
             <Input
               type="password"
               ref={passwordRef}
-              size="xl"
+              size="md" // Decrease input size for smaller screens
               bgColor={"gray.1"}
             />
           </label>
           <Button
             type="submit"
             className={css({
-              padding: 8,
+              padding: 4, // Decrease padding for smaller screens
             })}
           >
             ログイン
@@ -156,12 +157,12 @@ const StudentLogin = () => {
         </form>
         <div
           className={css({
-            marginTop: 8,
+            marginTop: 4, // Decrease margin for smaller screens
             display: "flex",
             flexDirection: "column",
           })}
         >
-          <span className={css({ marginTop: 8 })}>
+          <span className={css({ marginTop: 4 })}>
             <a> アカウントをお持ちでない方はこちら</a>
           </span>
           <Button className={css({})}>
