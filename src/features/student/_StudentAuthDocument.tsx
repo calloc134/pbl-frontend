@@ -21,11 +21,9 @@ const StudentAuthDocument = () => {
         icon: "👨‍🏫",
       });
 
-      setTimeout(() => {
-        navigate({
-          to: "/student/login",
-        });
-      }, 1500);
+      navigate({
+        to: "/student/login",
+      });
     }
   }, []);
 
