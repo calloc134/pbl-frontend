@@ -33,7 +33,6 @@ const MyStudentDetails: React.FC = () => {
         })}
       >
         <Table.Root>
-          <Table.Caption>生徒アカウントの詳細</Table.Caption>
           <Table.Body>
             <Table.Row>
               <Table.Cell>ID</Table.Cell>

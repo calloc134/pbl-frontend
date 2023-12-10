@@ -35,7 +35,16 @@ const StudentAuthDocument = () => {
       <Drawer.Root placement={"left"}>
         <div className={css({ backgroundColor: "gray.1" })}>
           <Header />
-          <Outlet />
+          <div
+            className={css({
+              padding: 4,
+              md: {
+                padding: 8, // Add left and right padding on medium screens and above
+              },
+            })}
+          >
+            <Outlet />
+          </div>
           <StudentDrawer />
         </div>
       </Drawer.Root>

@@ -2,6 +2,7 @@ import { css } from "src/lib/styled-system/css";
 import { useMyStudentDetailsFetch } from "../hooks/useMyStudentDetailsFetch";
 import { School } from "tabler-icons-react";
 import * as Drawer from "src/components/Drawer";
+import * as Table from "src/components/Table";
 import { Button } from "src/components/Button";
 
 // 画面全体のヘッダー部分を表示するコンポーネント
@@ -20,7 +21,12 @@ const Header = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
-        padding: 8,
+        padding: 2,
+        fontSize: "small", // Add this line to set the font size to small
+        flexWrap: "wrap", // Add this line to wrap the content
+        md: {
+          fontSize: "medium", // Increase font size for larger screens
+        },
       })}
     >
       <Drawer.Trigger asChild>
@@ -37,19 +43,32 @@ const Header = () => {
           </div>
         </Button>
       </Drawer.Trigger>
-      <div className={css({ display: "flex", alignItems: "center" })}>
-        <div className={css({ marginRight: 24 })}>
-          <span className={css({ fontWeight: "bold" })}>固有ID:</span>
-          <span className={css({ marginLeft: 8 })}>{student_uuid}</span>
-        </div>
-        <div className={css({ marginRight: 24 })}>
-          <span className={css({ fontWeight: "bold" })}>学籍番号:</span>
-          <span className={css({ marginLeft: 8 })}>{student_id}</span>
-        </div>
-        <div className={css({ marginRight: 24 })}>
-          <span className={css({ fontWeight: "bold" })}>名前:</span>
-          <span className={css({ marginLeft: 8 })}>{name}</span>
-        </div>
+
+      <div
+        className={css({
+          display: "flex",
+          alignItems: "end",
+          padding: 2,
+          flexWrap: "wrap", // Wrap the content
+          fontSize: "small", // Add this line to set the font size to small
+        })}
+      >
+        <Table.Root>
+          <Table.Body>
+            <Table.Row>
+              <Table.Cell>固有ID:</Table.Cell>
+              <Table.Cell>{student_uuid}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>学籍番号:</Table.Cell>
+              <Table.Cell>{student_id}</Table.Cell>
+            </Table.Row>
+            <Table.Row>
+              <Table.Cell>名前:</Table.Cell>
+              <Table.Cell>{name}</Table.Cell>
+            </Table.Row>
+          </Table.Body>
+        </Table.Root>
       </div>
     </div>
   );
