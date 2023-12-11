@@ -165,7 +165,7 @@ const TeacherLogin = () => {
           <span className={css({ marginTop: 4 })}>
             <a> アカウントをお持ちでない方はこちら</a>
           </span>
-          <Button className={css({})}>
+          <Button asChild>
             <Link to="/teacher/register">アカウント登録</Link>
           </Button>
         </div>

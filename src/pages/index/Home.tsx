@@ -63,6 +63,7 @@ const Home = () => {
                 marginRight: 8, // Add right margin on medium screens and above
               },
             })}
+            asChild
           >
             <Link to="/student/login">生徒用ログイン</Link>
           </Button>
@@ -71,6 +72,7 @@ const Home = () => {
               padding: "8px 16px",
               borderRadius: 4,
             })}
+            asChild
           >
             <Link to="/teacher/login">教師用ログイン</Link>
           </Button>

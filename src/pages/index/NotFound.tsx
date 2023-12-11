@@ -27,7 +27,7 @@ const NotFound = () => {
       >
         <h1 className={css({ fontSize: "2xl" })}>404 Not Found</h1>
         <p className={css({ fontSize: "xl" })}>ページが見つかりませんでした</p>
-        <Button className={css({ fontSize: "lg" })}>
+        <Button className={css({ fontSize: "lg" })} asChild>
           <Link to="/" className={css({ fontSize: "lg" })}>
             ホーム画面へ戻る
           </Link>
