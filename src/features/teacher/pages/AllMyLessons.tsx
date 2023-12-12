@@ -5,6 +5,7 @@ import { css } from "src/lib/styled-system/css";
 import * as Table from "src/components/Table";
 import { Button } from "src/components/Button";
 import toast from "react-hot-toast";
+import { Link } from "@tanstack/react-router";
 
 const AllMyLessons = () => {
   const { data, refetch } = useAllMyLessonFetch();
@@ -126,7 +127,14 @@ const AllMyLessons = () => {
                     授業の終了
                   </Button>
                 ) : (
-                  <></>
+                  <Button asChild>
+                    <Link
+                      to={`/teacher/auth/lessons/$lessonUuid/attendances`}
+                      params={{ lessonUuid: lesson.lesson_uuid }}
+                    >
+                      生徒の出席を確認する
+                    </Link>
+                  </Button>
                 )}
               </Table.Cell>
             </Table.Row>

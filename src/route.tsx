@@ -19,6 +19,7 @@ import { AllStudents } from "./features/teacher/pages/AllStudents";
 import { AllTeachers } from "./features/teacher/pages/AllTeachers";
 import { AllMyLessons } from "./features/teacher/pages/AllMyLessons";
 import { AddLesson } from "./features/teacher/pages/AddLesson";
+import { AllAttendanceByLesson } from "./features/teacher/pages/AllAttendanceByLesson";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -156,6 +157,13 @@ const teacher_add_lesson_route = new Route({
   component: () => <AddLesson />,
 });
 
+// 教師が特定の授業における生徒の出席状況を確認するためのルート
+const teacher_attendance_route = new Route({
+  getParentRoute: () => teacher_auth_route,
+  path: "/lessons/$lessonUuid/attendances",
+  component: () => <AllAttendanceByLesson />,
+});
+
 const router = new Router({
   routeTree: root_route.addChildren([
     index_route.addChildren([
@@ -177,6 +185,7 @@ const router = new Router({
             teacher_all_teachers_route,
             teacher_all_lessons_route,
             teacher_add_lesson_route,
+            teacher_attendance_route,
           ]),
         ]),
       ]),
