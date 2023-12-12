@@ -48,15 +48,6 @@ const AllMyLessons = () => {
                 {lesson.name}
               </Table.Cell>
               <Table.Cell
-                className={css({
-                  fontSize: 16,
-                  lg: { fontSize: 24 },
-                  marginBottom: 16,
-                })}
-              >
-                {lesson.lesson_uuid}
-              </Table.Cell>
-              <Table.Cell
                 className={css({ fontSize: 16, md: { fontSize: 24 } })}
               >
                 {lesson.status === 0
@@ -66,6 +57,15 @@ const AllMyLessons = () => {
                   : lesson.status === 2
                   ? "終了"
                   : "不明"}
+              </Table.Cell>
+              <Table.Cell
+                className={css({
+                  fontSize: 16,
+                  lg: { fontSize: 24 },
+                  marginBottom: 16,
+                })}
+              >
+                {lesson.lesson_uuid}
               </Table.Cell>
             </Table.Row>
           ))}
