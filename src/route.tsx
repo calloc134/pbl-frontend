@@ -18,6 +18,7 @@ import { AddJoinLesson } from "./features/student/pages/AddJoinLesson";
 import { AllStudents } from "./features/teacher/pages/AllStudents";
 import { AllTeachers } from "./features/teacher/pages/AllTeachers";
 import { AllMyLessons } from "./features/teacher/pages/AllMyLessons";
+import { AddLesson } from "./features/teacher/pages/AddLesson";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -148,6 +149,13 @@ const teacher_all_lessons_route = new Route({
   component: () => <AllMyLessons />,
 });
 
+// 教師が担当する授業を追加するためのルート
+const teacher_add_lesson_route = new Route({
+  getParentRoute: () => teacher_auth_route,
+  path: "/add-lesson",
+  component: () => <AddLesson />,
+});
+
 const router = new Router({
   routeTree: root_route.addChildren([
     index_route.addChildren([
@@ -168,6 +176,7 @@ const router = new Router({
             teacher_all_students_route,
             teacher_all_teachers_route,
             teacher_all_lessons_route,
+            teacher_add_lesson_route,
           ]),
         ]),
       ]),

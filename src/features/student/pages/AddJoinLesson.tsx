@@ -65,8 +65,9 @@ const AddJoinLesson: React.FC = () => {
   return (
     <div
       className={css({
-        padding: 8,
-        width: "60%", // Set the width to 60% of the screen size
+        padding: 4,
+        width: "100%", // Set the width to 60% of the screen size
+        maxWidth: 1200, // Limit the width to 400px
         margin: "0 auto", // Center align the card
         border: "1px solid black", // Add a black border to the card
         borderRadius: 8, // Add rounded corners to the card
