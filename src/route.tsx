@@ -14,6 +14,7 @@ import { TeacherRegister } from "./features/teacher/pages/TeacherRegister";
 import { TeacherLogin } from "./features/teacher/pages/TeacherLogin";
 import { TeacherAuthDocument } from "./features/teacher/pages/_StudentAuthDocument";
 import { MyTeacherDetails } from "./features/teacher/pages/MyTeacherDetails";
+import { AddJoinLesson } from "./features/student/pages/AddJoinLesson";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -81,6 +82,13 @@ const student_attendance_route = new Route({
   component: () => <MyAttendance />,
 });
 
+// 生徒が自分の授業を追加するためのルート
+const student_add_course_route = new Route({
+  getParentRoute: () => student_auth_route,
+  path: "/add-join-lesson",
+  component: () => <AddJoinLesson />,
+});
+
 // 教師用のルート
 const teacher_route = new Route({
   getParentRoute: () => root_route,
@@ -126,6 +134,7 @@ const router = new Router({
           student_info_route,
           student_attendance_route,
           student_course_route,
+          student_add_course_route,
         ]),
         teacher_route.addChildren([
           teacher_register_route,

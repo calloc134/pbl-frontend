@@ -1,6 +1,7 @@
 import { css } from "src/lib/styled-system/css";
 import { Link } from "@tanstack/react-router";
 import { Button } from "src/components/Button";
+import { Toaster } from "react-hot-toast";
 
 const NotFound = () => {
   return (
@@ -33,6 +34,7 @@ const NotFound = () => {
           </Link>
         </Button>
       </div>
+      <Toaster />
     </div>
   );
 };

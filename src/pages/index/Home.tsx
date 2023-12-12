@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { Button } from "../../components/Button";
 import { css } from "../../lib/styled-system/css";
+import { Toaster } from "react-hot-toast";
 
 const Home = () => {
   return (
@@ -78,6 +79,7 @@ const Home = () => {
           </Button>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
