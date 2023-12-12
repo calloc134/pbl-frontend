@@ -83,7 +83,7 @@ const TeacherRegister = () => {
       navigate({
         to: "/teacher/login",
       });
-    }, 1500);
+    }, 1000);
   };
 
   return (

@@ -118,7 +118,7 @@ const StudentRegister = () => {
       navigate({
         to: "/student/login",
       });
-    }, 1500);
+    }, 1000);
   };
 
   return (

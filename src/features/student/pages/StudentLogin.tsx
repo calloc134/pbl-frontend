@@ -32,7 +32,7 @@ const StudentLogin = () => {
         navigate({
           to: "/student/auth/",
         });
-      }, 1500);
+      }, 1000);
     }
   }, []);
 
@@ -99,7 +99,7 @@ const StudentLogin = () => {
       navigate({
         to: "/student/auth/",
       });
-    }, 1500);
+    }, 1000);
   };
 
   return (

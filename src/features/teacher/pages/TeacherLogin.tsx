@@ -32,7 +32,7 @@ const TeacherLogin = () => {
         navigate({
           to: "/teacher/auth/",
         });
-      }, 1500);
+      }, 1000);
     }
   }, []);
 
@@ -99,7 +99,7 @@ const TeacherLogin = () => {
       navigate({
         to: "/teacher/auth/",
       });
-    }, 1500);
+    }, 1000);
   };
 
   return (

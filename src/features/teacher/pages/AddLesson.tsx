@@ -28,9 +28,11 @@ const AddLesson = () => {
     }
 
     toast.success("授業を追加しました");
-    navigate({
-      to: "/teacher/auth/lessons",
-    });
+    setTimeout(() => {
+      navigate({
+        to: "/teacher/auth/lessons",
+      });
+    }, 1000);
   };
 
   return (
