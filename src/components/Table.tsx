@@ -10,7 +10,6 @@ const TableBody = withContext(styled(ark.tbody), "body");
 const TableCaption = withContext(styled(ark.caption), "caption");
 const TableCell = withContext(styled(ark.td), "cell");
 const TableFooter = withContext(styled(ark.tfoot), "footer");
-// これなんでだろう
 const TableHead = withContext(styled(ark.header), "header");
 const TableHeader = withContext(styled(ark.th), "head");
 const TableRow = withContext(styled(ark.tr), "row");

@@ -1,16 +1,15 @@
+import { useAllStudentsFetch } from "../hooks/useAllStudentsFetch";
 import { css } from "src/lib/styled-system/css";
-import { useMyJoinLessonFetch } from "../hooks/useMyJoinLessonFetch";
 import * as Table from "src/components/Table";
 
-// 自分が履修している授業一覧を表示するページ
-const MyJoinLesson = () => {
-  const { data } = useMyJoinLessonFetch();
+const AllStudents = () => {
+  const { data } = useAllStudentsFetch();
 
   if (data === undefined) {
-    return <div className={css({ fontSize: 32, padding: 8 })}>Loading...</div>;
+    return <div className={css({ fontSize: 16, padding: 4 })}>Loading...</div>;
   }
 
-  const joinLesson = data;
+  const students = data;
 
   return (
     <div
@@ -32,13 +31,13 @@ const MyJoinLesson = () => {
     >
       <h2 className={css({ marginBottom: 8 })}>
         <span className={css({ fontWeight: "bold", fontSize: 24 })}>
-          履修している授業の一覧
+          すべての生徒の一覧
         </span>
       </h2>
       <Table.Root>
         <Table.Body>
-          {joinLesson.map((lesson) => (
-            <Table.Row key={lesson.lesson.lesson_uuid}>
+          {students.map((student) => (
+            <Table.Row key={student.student_uuid}>
               <Table.Cell
                 className={css({
                   fontSize: 16,
@@ -46,7 +45,7 @@ const MyJoinLesson = () => {
                   marginBottom: 16,
                 })}
               >
-                {lesson.lesson.name}
+                {student.name}
               </Table.Cell>
               <Table.Cell
                 className={css({
@@ -55,13 +54,7 @@ const MyJoinLesson = () => {
                   marginBottom: 16,
                 })}
               >
-                {lesson.lesson.status === 0
-                  ? "開講前"
-                  : lesson.lesson.status === 1
-                  ? "開講中"
-                  : lesson.lesson.status === 2
-                  ? "終了"
-                  : "不明"}
+                {student.student_id}
               </Table.Cell>
               <Table.Cell
                 className={css({
@@ -70,7 +63,7 @@ const MyJoinLesson = () => {
                   marginBottom: 16,
                 })}
               >
-                {lesson.lesson.teacher.name}
+                {student.email}
               </Table.Cell>
             </Table.Row>
           ))}
@@ -80,4 +73,4 @@ const MyJoinLesson = () => {
   );
 };
 
-export { MyJoinLesson };
+export { AllStudents };
