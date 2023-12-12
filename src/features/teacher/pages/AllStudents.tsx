@@ -65,6 +65,15 @@ const AllStudents = () => {
               >
                 {student.email}
               </Table.Cell>
+              <Table.Cell
+                className={css({
+                  fontSize: 16,
+                  md: { fontSize: 24 },
+                  marginBottom: 16,
+                })}
+              >
+                {student.device_id}
+              </Table.Cell>
             </Table.Row>
           ))}
         </Table.Body>
