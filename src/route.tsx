@@ -16,6 +16,7 @@ import { TeacherAuthDocument } from "./features/teacher/pages/_StudentAuthDocume
 import { MyTeacherDetails } from "./features/teacher/pages/MyTeacherDetails";
 import { AddJoinLesson } from "./features/student/pages/AddJoinLesson";
 import { AllStudents } from "./features/teacher/pages/AllStudents";
+import { AllTeachers } from "./features/teacher/pages/AllTeachers";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -132,6 +133,13 @@ const teacher_all_students_route = new Route({
   component: () => <AllStudents />,
 });
 
+// 教師がすべての教師を確認する用のルート
+const teacher_all_teachers_route = new Route({
+  getParentRoute: () => teacher_auth_route,
+  path: "/teachers",
+  component: () => <AllTeachers />,
+});
+
 const router = new Router({
   routeTree: root_route.addChildren([
     index_route.addChildren([
@@ -150,6 +158,7 @@ const router = new Router({
           teacher_auth_route.addChildren([
             teacher_info_route,
             teacher_all_students_route,
+            teacher_all_teachers_route,
           ]),
         ]),
       ]),

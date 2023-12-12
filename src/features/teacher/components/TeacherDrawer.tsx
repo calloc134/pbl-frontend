@@ -36,6 +36,16 @@ const StudentDrawer: React.FC = () => {
                   <Link to="/teacher/auth/">教師用画面のトップ</Link>
                 </Drawer.CloseTrigger>
               </div>
+              <div className={css({ marginBottom: 4 })}>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/teacher/auth/students">すべての生徒</Link>
+                </Drawer.CloseTrigger>
+              </div>
+              <div className={css({ marginBottom: 4 })}>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/teacher/auth/teachers">すべての教師</Link>
+                </Drawer.CloseTrigger>
+              </div>
             </Drawer.Body>
           </Drawer.Content>
         </Drawer.Positioner>
