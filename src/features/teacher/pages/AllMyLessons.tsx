@@ -80,63 +80,55 @@ const AllMyLessons = () => {
         <Table.Body>
           {lessons.map((lesson) => (
             <Table.Row key={lesson.lesson_uuid}>
-              <Table.Cell
-                className={css({
-                  fontSize: 16,
-                  md: { fontSize: 24 },
-                  marginBottom: 16,
-                })}
-              >
-                {lesson.name}
-              </Table.Cell>
-              <Table.Cell
-                className={css({ fontSize: 16, md: { fontSize: 24 } })}
-              >
-                {lesson.status === 0
-                  ? "開講前"
-                  : lesson.status === 1
-                  ? "開講中"
-                  : lesson.status === 2
-                  ? "終了"
-                  : "不明"}
-              </Table.Cell>
-              <Table.Cell
-                className={css({
-                  fontSize: 16,
-                  lg: { fontSize: 24 },
-                  marginBottom: 16,
-                })}
-              >
-                {lesson.lesson_uuid}
-              </Table.Cell>
-              <Table.Cell
-                className={css({
-                  fontSize: 16,
-                  lg: { fontSize: 24 },
-                  marginBottom: 16,
-                })}
-              >
-                {lesson.status === 0 ? (
-                  <Button onClick={() => handleStartLesson(lesson.lesson_uuid)}>
-                    授業の開始
-                  </Button>
-                ) : lesson.status === 1 ? (
-                  <Button
-                    onClick={() => handleFinishLesson(lesson.lesson_uuid)}
-                  >
-                    授業の終了
-                  </Button>
-                ) : (
-                  <Button asChild>
-                    <Link
-                      to={`/teacher/auth/lessons/$lessonUuid/attendances`}
-                      params={{ lessonUuid: lesson.lesson_uuid }}
+              <div>
+                <Table.Cell
+                  className={css({ fontSize: 12, md: { fontSize: 16 } })}
+                >
+                  {lesson.name}
+                </Table.Cell>
+                <Table.Cell
+                  className={css({ fontSize: 12, md: { fontSize: 16 } })}
+                >
+                  {lesson.status === 0
+                    ? "開講前"
+                    : lesson.status === 1
+                    ? "開講中"
+                    : lesson.status === 2
+                    ? "終了"
+                    : "不明"}
+                </Table.Cell>
+                <Table.Cell
+                  className={css({ fontSize: 12, md: { fontSize: 16 } })}
+                >
+                  {lesson.lesson_uuid}
+                </Table.Cell>
+                <Table.Cell
+                  className={css({ fontSize: 12, md: { fontSize: 16 } })}
+                >
+                  {lesson.status === 0 ? (
+                    <Button
+                      onClick={() => handleStartLesson(lesson.lesson_uuid)}
                     >
-                      生徒の出席を確認する
-                    </Link>
-                  </Button>
-                )}
-              </Table.Cell>
+                      授業の開始
+                    </Button>
+                  ) : lesson.status === 1 ? (
+                    <Button
+                      onClick={() => handleFinishLesson(lesson.lesson_uuid)}
+                    >
+                      授業の終了
+                    </Button>
+                  ) : (
+                    <Button asChild>
+                      <Link
+                        to={`/teacher/auth/lessons/$lessonUuid/attendances`}
+                        params={{ lessonUuid: lesson.lesson_uuid }}
+                      >
+                        生徒の出席を確認する
+                      </Link>
+                    </Button>
+                  )}
+                </Table.Cell>
+              </div>
             </Table.Row>
           ))}
         </Table.Body>
