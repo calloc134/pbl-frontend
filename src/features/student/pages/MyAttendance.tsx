@@ -1,5 +1,6 @@
 import { useMyAttendanceFetch } from "../hooks/useMyAttendanceFetch";
 import { css } from "src/lib/styled-system/css";
+import * as Table from "src/components/Table";
 
 // 自分の過去の出席を確認するページ
 const MyAttendance = () => {
@@ -29,95 +30,36 @@ const MyAttendance = () => {
           過去の出席
         </span>
       </h2>
-      <div
-        className={css({
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        })}
-      >
-        {attendance.map((attendance) => {
-          const { attendance_uuid, lesson, status } = attendance;
-
-          return (
-            <div
-              key={attendance_uuid}
-              className={css({
-                display: "flex",
-                flexDirection: "column",
-                marginBottom: 8,
-              })}
-            >
-              <div
+      <Table.Root>
+        <Table.Body>
+          {attendance.map((attendance) => (
+            <Table.Row key={attendance.attendance_uuid}>
+              <Table.Cell
                 className={css({
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: 4,
+                  fontSize: 16,
+                  md: { fontSize: 24 },
+                  marginBottom: 16,
                 })}
               >
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  出席ID:
-                </span>
-                <span className={css({ fontSize: 16 })}>{attendance_uuid}</span>
-              </div>
-              <div
+                {attendance.lesson.name}
+              </Table.Cell>
+              <Table.Cell
                 className={css({
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: 4,
+                  fontSize: 16,
+                  md: { fontSize: 24 },
+                  marginBottom: 16,
                 })}
               >
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  レッスンID:
-                </span>
-                <span className={css({ fontSize: 16 })}>
-                  {lesson.lesson_uuid}
-                </span>
-
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  レッスン名:
-                </span>
-                <span className={css({ fontSize: 16 })}>{lesson.name}</span>
-
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  レッスン日時:
-                </span>
-                <span className={css({ fontSize: 16 })}>
-                  {lesson.status === 0
-                    ? "未実施"
-                    : lesson.status === 1
-                    ? "実施中"
-                    : "終了"}
-                </span>
-
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  担当教師
-                </span>
-
-                <div className={css({ fontSize: 16 })}>
-                  {lesson.teacher.name}
-                </div>
-              </div>
-              <div
-                className={css({
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  marginBottom: 4,
-                })}
-              >
-                <span className={css({ fontWeight: "bold", fontSize: 16 })}>
-                  出席状況:
-                </span>
-                <span className={css({ fontSize: 16 })}>{status}</span>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+                {attendance.status === 1
+                  ? "出席"
+                  : attendance.status === 0
+                  ? "欠席"
+                  : "不明"}
+              </Table.Cell>
+            </Table.Row>
+          ))}
+        </Table.Body>
+      </Table.Root>
     </div>
   );
 };

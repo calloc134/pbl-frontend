@@ -5,7 +5,7 @@ import { useJwtToken } from "../context/useJWTToken";
 const useAllMyLessonFetch = () => {
   const { jwtToken } = useJwtToken();
 
-  const { data, isLoading, error } = useQuery({
+  const { data, isLoading, error, refetch } = useQuery({
     queryKey: ["teacher", "me", "lessons"],
     queryFn: async () => {
       const response = await fetch(
@@ -25,7 +25,7 @@ const useAllMyLessonFetch = () => {
       }[];
     },
   });
-  return { data, isLoading, error };
+  return { data, isLoading, error, refetch };
 };
 
 export { useAllMyLessonFetch };

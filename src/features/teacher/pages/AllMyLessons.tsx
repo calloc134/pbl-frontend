@@ -1,15 +1,56 @@
 import { useAllMyLessonFetch } from "../hooks/useAllMyLessonFetch";
+import { useStartLesson } from "../hooks/useStartLesson";
+import { useFinishLesson } from "../hooks/useFinishLesson";
 import { css } from "src/lib/styled-system/css";
 import * as Table from "src/components/Table";
+import { Button } from "src/components/Button";
+import toast from "react-hot-toast";
 
 const AllMyLessons = () => {
-  const { data } = useAllMyLessonFetch();
+  const { data, refetch } = useAllMyLessonFetch();
+
+  const { startLesson } = useStartLesson();
+  const { finishLesson } = useFinishLesson();
 
   if (data === undefined) {
     return <div className={css({ fontSize: 16, padding: 4 })}>Loading...</div>;
   }
 
   const lessons = data;
+
+  const handleStartLesson = async (lessonUuid: string) => {
+    const data = await startLesson(lessonUuid);
+
+    if (data === undefined) {
+      toast.error("授業の開始に失敗しました。", {
+        icon: "👨‍🏫",
+      });
+      return;
+    }
+
+    toast.success("授業を開始しました。", {
+      icon: "👨‍🏫",
+    });
+
+    refetch();
+  };
+
+  const handleFinishLesson = async (lessonUuid: string) => {
+    const data = await finishLesson(lessonUuid);
+
+    if (data === undefined) {
+      toast.error("授業の終了に失敗しました。", {
+        icon: "👨‍🏫",
+      });
+      return;
+    }
+
+    toast.success("授業を終了しました。", {
+      icon: "👨‍🏫",
+    });
+
+    refetch();
+  };
 
   return (
     <div
@@ -66,6 +107,27 @@ const AllMyLessons = () => {
                 })}
               >
                 {lesson.lesson_uuid}
+              </Table.Cell>
+              <Table.Cell
+                className={css({
+                  fontSize: 16,
+                  lg: { fontSize: 24 },
+                  marginBottom: 16,
+                })}
+              >
+                {lesson.status === 0 ? (
+                  <Button onClick={() => handleStartLesson(lesson.lesson_uuid)}>
+                    授業の開始
+                  </Button>
+                ) : lesson.status === 1 ? (
+                  <Button
+                    onClick={() => handleFinishLesson(lesson.lesson_uuid)}
+                  >
+                    授業の終了
+                  </Button>
+                ) : (
+                  <></>
+                )}
               </Table.Cell>
             </Table.Row>
           ))}

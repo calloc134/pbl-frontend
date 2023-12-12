@@ -7,7 +7,7 @@ import { Button } from "src/components/Button";
 import { Link } from "@tanstack/react-router";
 import { css } from "src/lib/styled-system/css";
 
-const StudentDrawer: React.FC = () => {
+const TeacherDrawer: React.FC = () => {
   return (
     <>
       <Portal>
@@ -64,4 +64,4 @@ const StudentDrawer: React.FC = () => {
   );
 };
 
-export { StudentDrawer };
+export { TeacherDrawer };

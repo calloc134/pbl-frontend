@@ -12,7 +12,7 @@ import { MyJoinLesson } from "./features/student/pages/MyJoinLesson";
 import { TeacherDocument } from "./features/teacher/pages/_TeacherDocument";
 import { TeacherRegister } from "./features/teacher/pages/TeacherRegister";
 import { TeacherLogin } from "./features/teacher/pages/TeacherLogin";
-import { TeacherAuthDocument } from "./features/teacher/pages/_StudentAuthDocument";
+import { TeacherAuthDocument } from "./features/teacher/pages/_TeacherAuthDocument";
 import { MyTeacherDetails } from "./features/teacher/pages/MyTeacherDetails";
 import { AddJoinLesson } from "./features/student/pages/AddJoinLesson";
 import { AllStudents } from "./features/teacher/pages/AllStudents";

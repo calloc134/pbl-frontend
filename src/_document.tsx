@@ -1,6 +1,7 @@
 import { Outlet } from "@tanstack/react-router";
 import { css } from "./lib/styled-system/css";
 import { TanStackRouterDevtools } from "@tanstack/router-devtools";
+
 import { Camera } from "tabler-icons-react";
 import { Link } from "@tanstack/react-router";
 

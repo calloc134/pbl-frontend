@@ -6,8 +6,9 @@ import { css } from "src/lib/styled-system/css";
 import { Header } from "../components/Header";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import * as Drawer from "src/components/Drawer";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import { StudentDrawer } from "../components/TeacherDrawer";
+import { TeacherDrawer } from "../components/TeacherDrawer";
 
 // ログインが必要なページのラッパー
 const TeacherAuthDocument = () => {
@@ -25,7 +26,7 @@ const TeacherAuthDocument = () => {
       });
 
       navigate({
-        to: "/student/login",
+        to: "/teacher/login",
       });
     }
   }, []);
@@ -45,7 +46,8 @@ const TeacherAuthDocument = () => {
           >
             <Outlet />
           </div>
-          <StudentDrawer />
+          <TeacherDrawer />
+          <ReactQueryDevtools initialIsOpen={false} />
         </div>
       </Drawer.Root>
     </QueryClientProvider>
