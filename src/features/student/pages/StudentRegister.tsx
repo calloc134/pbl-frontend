@@ -11,6 +11,7 @@ const StudentRegister = () => {
   const nameRef = useRef<HTMLInputElement>(null);
   const deviceIdRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
+  const passwordConfirmRef = useRef<HTMLInputElement>(null);
 
   const navigate = useNavigate();
 
@@ -21,6 +22,7 @@ const StudentRegister = () => {
     const name = nameRef.current?.value;
     const deviceId = deviceIdRef.current?.value;
     const password = passwordRef.current?.value;
+    const passwordConfirm = passwordConfirmRef.current?.value;
 
     // Add your validation logic here
     const studentIdRegex = /^\d{9}$/;
@@ -75,6 +77,15 @@ const StudentRegister = () => {
         }
       );
       console.error("パスワードが正しくありません");
+      return;
+    }
+
+    if (password !== passwordConfirm) {
+      // 一致していない場合
+      toast.error("パスワードが一致しません。", {
+        icon: "🔑",
+      });
+      console.error("パスワードが一致しません");
       return;
     }
 
@@ -172,6 +183,15 @@ const StudentRegister = () => {
             <Input
               type="password"
               ref={passwordRef}
+              size="md"
+              bgColor={"gray.1"}
+            />
+          </label>
+          <label className={css({ marginBottom: 8 })}>
+            パスワード(確認用):
+            <Input
+              type="password"
+              ref={passwordConfirmRef}
               size="md"
               bgColor={"gray.1"}
             />
