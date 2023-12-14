@@ -15,10 +15,12 @@ const TeacherDrawer: React.FC = () => {
         <Drawer.Positioner>
           <Drawer.Content>
             <Drawer.Header>
-              <Drawer.Title>教師用画面</Drawer.Title>
-              <Drawer.Description>
+              <h1 className={css({ fontSize: 22, fontWeight: "bold" })}>
+                教師用画面
+              </h1>
+              <p className={css({ fontSize: 14, color: "gray" })}>
                 以下の内容にアクセスできます。
-              </Drawer.Description>
+              </p>
               <Drawer.CloseTrigger
                 asChild
                 position="absolute"
@@ -30,33 +32,40 @@ const TeacherDrawer: React.FC = () => {
                 </Button>
               </Drawer.CloseTrigger>
             </Drawer.Header>
-            <Drawer.Body>
-              <div className={css({ marginBottom: 4 })}>
+            <div
+              className={css({
+                padding: 6,
+                display: "flex",
+                flexDirection: "column",
+                rowGap: 2,
+              })}
+            >
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/teacher/auth/">教師用画面のトップ</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/teacher/auth/students">すべての生徒</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/teacher/auth/teachers">すべての教師</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/teacher/auth/lessons">担当するすべての授業</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/teacher/auth/add-lesson">授業の追加</Link>
                 </Drawer.CloseTrigger>
               </div>
-            </Drawer.Body>
+            </div>
           </Drawer.Content>
         </Drawer.Positioner>
       </Portal>
