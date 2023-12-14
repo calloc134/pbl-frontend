@@ -25,11 +25,17 @@ const JwtProvider: FC<{ children: ReactNode }> = ({ children }) => {
     return JSON.parse(decodedPayload);
   }, [jwtToken]);
 
+  // JWTトークンを削除し、ログアウトする
+  const deleteJwtTokenAndLogout = useCallback(() => {
+    setJwtToken(null);
+  }, [setJwtToken]);
+
   // コンテキストプロバイダの値
   const contextValue: IJwtStudentContext = {
     jwtToken,
     setJwtToken,
     getJwtPayload,
+    deleteJwtTokenAndLogout,
   };
 
   return (

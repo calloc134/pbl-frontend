@@ -7,7 +7,7 @@ import { Button } from "../../../components/Button";
 import { css } from "src/lib/styled-system/css";
 
 // ログアウトするページ
-const TeacherLogout: React.FC = () => {
+const StudentLogout: React.FC = () => {
   const { deleteJwtTokenAndLogout } = useJwtToken();
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const TeacherLogout: React.FC = () => {
     toast.success("ログアウトしました");
     setTimeout(() => {
       navigate({
-        to: "/teacher/login",
+        to: "/student/login",
       });
     }, 1000);
   };
@@ -26,7 +26,7 @@ const TeacherLogout: React.FC = () => {
       open={true}
       onOpenChange={() => {
         navigate({
-          to: "/teacher/auth/",
+          to: "/student/auth/",
         });
       }}
     >
@@ -64,4 +64,4 @@ const TeacherLogout: React.FC = () => {
   );
 };
 
-export { TeacherLogout };
+export { StudentLogout };
