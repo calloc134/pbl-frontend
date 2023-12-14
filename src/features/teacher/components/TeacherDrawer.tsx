@@ -65,6 +65,11 @@ const TeacherDrawer: React.FC = () => {
                   <Link to="/teacher/auth/add-lesson">授業の追加</Link>
                 </Drawer.CloseTrigger>
               </div>
+              <div>
+                <Drawer.CloseTrigger asChild>
+                  <Link to="/teacher/auth/logout">ログアウト</Link>
+                </Drawer.CloseTrigger>
+              </div>
             </div>
           </Drawer.Content>
         </Drawer.Positioner>

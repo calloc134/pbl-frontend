@@ -20,6 +20,7 @@ import { AllTeachers } from "./features/teacher/pages/AllTeachers";
 import { AllMyLessons } from "./features/teacher/pages/AllMyLessons";
 import { AddLesson } from "./features/teacher/pages/AddLesson";
 import { AllAttendanceByLesson } from "./features/teacher/pages/AllAttendanceByLesson";
+import { TeacherLogout } from "./features/teacher/pages/TeacherLogout";
 
 // ホームページのルート
 const root_route = new RootRoute({});
@@ -164,6 +165,13 @@ const teacher_attendance_route = new Route({
   component: () => <AllAttendanceByLesson />,
 });
 
+// 教師がログアウトするためのルート
+const teacher_logout_route = new Route({
+  getParentRoute: () => teacher_auth_route,
+  path: "/logout",
+  component: () => <TeacherLogout />,
+});
+
 const router = new Router({
   routeTree: root_route.addChildren([
     index_route.addChildren([
@@ -186,6 +194,7 @@ const router = new Router({
             teacher_all_lessons_route,
             teacher_add_lesson_route,
             teacher_attendance_route,
+            teacher_logout_route,
           ]),
         ]),
       ]),

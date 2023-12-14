@@ -10,4 +10,5 @@ export interface IJwtTeacherContext {
   jwtToken: string | null;
   setJwtToken: (token: string | null) => void;
   getJwtPayload: () => JwtTeacherPayloadType | null;
+  deleteJwtTokenAndLogout: () => void;
 }
