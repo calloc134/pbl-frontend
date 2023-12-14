@@ -78,10 +78,13 @@ const AddLesson = () => {
           <Dialog.Backdrop />
           <Dialog.Positioner>
             <Dialog.Content className={css({ padding: 8 })}>
-              <Dialog.DialogTitle className={css({ marginBottom: 8 })}>
-                授業の追加
-              </Dialog.DialogTitle>
-              <Dialog.Description>授業を追加しますか？</Dialog.Description>
+              <h1 className={css({ marginBottom: 4 })}>
+                <span className={css({ fontWeight: "bold", fontSize: 22 })}>
+                  授業の追加
+                </span>
+              </h1>
+              <p>授業名：{inputRef.current?.value} を追加しますか？</p>
+
               <div
                 className={css({
                   width: "100%",
