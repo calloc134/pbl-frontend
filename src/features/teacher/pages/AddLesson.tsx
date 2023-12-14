@@ -1,18 +1,22 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { useNavigate } from "@tanstack/react-router";
 import { toast } from "react-hot-toast";
 import { useAddLessonFetch } from "../hooks/useAddLessonFetch";
 import { Input } from "../../../components/Input";
 import { Button } from "../../../components/Button";
 import { css } from "src/lib/styled-system/css";
+import * as Dialog from "../../../components/Dialog";
+import { Portal } from "@ark-ui/react";
 
 const AddLesson = () => {
   const navigate = useNavigate();
   const { mutate } = useAddLessonFetch();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  // モーダルの開閉を管理するための状態
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSubmit = async () => {
     const name = inputRef.current?.value;
 
     if (name === undefined) {
@@ -49,20 +53,64 @@ const AddLesson = () => {
         alignItems: "center",
       })}
     >
-      <h2 className={css({ marginBottom: 16 })}>
-        <span className={css({ fontWeight: "bold", fontSize: 32 })}>
-          授業の追加
-        </span>
-      </h2>
-      <form className={css({ marginBottom: 16 })} onSubmit={handleSubmit}>
-        <div className={css({ marginBottom: 16 })}>
-          <Input ref={inputRef} placeholder="授業名" required type="text" />
-        </div>
+      <Dialog.Root open={isOpen} onOpenChange={(e) => setIsOpen(e.open)}>
+        <h2 className={css({ marginBottom: 16 })}>
+          <span className={css({ fontWeight: "bold", fontSize: 32 })}>
+            授業の追加
+          </span>
+        </h2>
+        <form
+          className={css({ marginBottom: 16 })}
+          onSubmit={(e) => {
+            e.preventDefault();
+            setIsOpen(true);
+          }}
+        >
+          <div className={css({ marginBottom: 16 })}>
+            <Input ref={inputRef} placeholder="授業名" required type="text" />
+          </div>
 
-        <Button type="submit" className={css({ width: "100%" })}>
-          授業を追加する
-        </Button>
-      </form>
+          <Button type="submit" className={css({ width: "100%" })}>
+            授業を追加する
+          </Button>
+        </form>
+        <Portal>
+          <Dialog.Backdrop />
+          <Dialog.Positioner>
+            <Dialog.Content className={css({ padding: 8 })}>
+              <Dialog.DialogTitle className={css({ marginBottom: 8 })}>
+                授業の追加
+              </Dialog.DialogTitle>
+              <Dialog.Description>授業を追加しますか？</Dialog.Description>
+              <div
+                className={css({
+                  width: "100%",
+                  display: "flex",
+                  gap: 8,
+                  paddingTop: 8,
+                })}
+              >
+                <Dialog.CloseTrigger asChild>
+                  <Button
+                    variant={"outline"}
+                    className={css({ width: "100%" })}
+                  >
+                    キャンセル
+                  </Button>
+                </Dialog.CloseTrigger>
+                <Dialog.CloseTrigger asChild>
+                  <Button
+                    className={css({ width: "100%" })}
+                    onClick={handleSubmit}
+                  >
+                    はい
+                  </Button>
+                </Dialog.CloseTrigger>
+              </div>
+            </Dialog.Content>
+          </Dialog.Positioner>
+        </Portal>
+      </Dialog.Root>
     </div>
   );
 };
