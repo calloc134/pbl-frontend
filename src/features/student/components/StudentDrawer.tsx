@@ -15,10 +15,12 @@ const StudentDrawer: React.FC = () => {
         <Drawer.Positioner>
           <Drawer.Content>
             <Drawer.Header>
-              <Drawer.Title>生徒用画面</Drawer.Title>
-              <Drawer.Description>
+              <h1 className={css({ fontSize: 22, fontWeight: "bold" })}>
+                生徒用画面
+              </h1>
+              <p className={css({ fontSize: 14, color: "gray" })}>
                 以下の内容にアクセスできます。
-              </Drawer.Description>
+              </p>
               <Drawer.CloseTrigger
                 asChild
                 position="absolute"
@@ -30,33 +32,40 @@ const StudentDrawer: React.FC = () => {
                 </Button>
               </Drawer.CloseTrigger>
             </Drawer.Header>
-            <Drawer.Body>
-              <div className={css({ marginBottom: 4 })}>
+            <div
+              className={css({
+                padding: 6,
+                display: "flex",
+                flexDirection: "column",
+                rowGap: 2,
+              })}
+            >
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/student/auth/">生徒用画面のトップ</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/student/auth/attendance">出席状況</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/student/auth/join-lesson">履修している授業</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/student/auth/add-join-lesson">履修授業の追加</Link>
                 </Drawer.CloseTrigger>
               </div>
-              <div className={css({ marginBottom: 4 })}>
+              <div>
                 <Drawer.CloseTrigger asChild>
                   <Link to="/student/auth/logout">ログアウト</Link>
                 </Drawer.CloseTrigger>
               </div>
-            </Drawer.Body>
+            </div>
           </Drawer.Content>
         </Drawer.Positioner>
       </Portal>
